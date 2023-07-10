@@ -1,7 +1,24 @@
-# Internmap - Frontend
+# internmap
 
-Projet ayant pour objectif de projeter sur une carte les différents lieux des stages des élèves.
+## Project setup
+```
+npm install
+```
 
-Cahier des charges [https://gitlab.com/projets-diy/intern-map/internmap-frontend/-/wikis/home]
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-Phase de conception
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
