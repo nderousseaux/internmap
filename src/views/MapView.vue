@@ -21,6 +21,8 @@ export default {
       const options = {
         center: { lat: 48.8589466, lng: 2.2769956 },
         zoom : 8,
+        disableDefaultUI: true,
+        mapId : "ae86e01fdc875900",
       }
       this.map = new window.google.maps.Map(selector, options)
     },
@@ -28,7 +30,6 @@ export default {
 }
 </script>
 
-<!-- TODO: créer un système pour les styles (couleurs/polices/etc...) -->
 <style scoped>
 #map {
   width: 100vw;
