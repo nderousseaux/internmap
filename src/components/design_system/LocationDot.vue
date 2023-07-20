@@ -1,5 +1,4 @@
-<!-- Boutton constitué uniquement d'un icone -->
-
+<!-- Marqueur de localisation -->
 <template>
 	<span id="LocationDot" class='location-dot'
 		:class="classes"

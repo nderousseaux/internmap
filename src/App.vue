@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import MainMap from './components/MainMap.vue'
+import MainMap from './views/MapView.vue'
 // import DSView from './views/DSView.vue'
 
 export default {
@@ -16,7 +16,6 @@ export default {
 }
 </script>
 
-<!-- TODO: créer un système pour les styles -->
 <style>
 @import './assets/_reset.scss';
 @import './assets/_variables.scss';
