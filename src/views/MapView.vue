@@ -1,17 +1,24 @@
 <template>
   <GoogleMap
     id="MainMap"
+    ref="map"
     :api-key="api_key"
     :map-id="map_id"
-    disable-default-ui=True
+    :disable-default-ui="true"
     :center="center"
-    :zoom="12"
+    :zoom="zoom"
+    @zoom_changed="updateZoom()"
   >
     <GmapCustomMarker
     :marker="center"
     alignment="center"
     >
-    <LocationDot v-if="gps" primary />
+
+    <span v-if="gps">
+      <LocationDot v-if="zoom > 15" primary approxCircle/>
+      <LocationDot v-else primary />
+    </span>
+    
         
     </GmapCustomMarker>
 
@@ -42,11 +49,18 @@ export default ({
         lng: 6.997605
       },
       gps: false,
+      zoom: 12,
     }
   },
 
   mounted() {
     this.placeLocation()
+  },
+
+  computed: {
+    map() {
+      return this.$refs.map.map
+    }
   },
 
   methods: {
@@ -58,10 +72,13 @@ export default ({
             lng: position.coords.longitude,
           }
           this.gps = true
-          console.log(this.gps)
         })
       }
     },
+
+    updateZoom() {
+      this.zoom = this.map.getZoom()
+    }
   },
 })
 </script>

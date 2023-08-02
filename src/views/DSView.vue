@@ -25,8 +25,8 @@
       <ButtonComp text="Lorem ipsum" secondary dimmed shadow bubble/>
     </div>
     <div>
-      <LocationDot primary/>
-      <LocationDot secondary/>
+      <LocationDot primary approxCircle/>
+      <LocationDot secondary approxCircle/>
     </div>
     <div>
       <TagComp text="Lorem" primary/>
@@ -66,14 +66,15 @@ export default {
 
 <style scoped>
 #BlankView {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: #C3C3C3;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 20px;
+  padding: 50px;
 
   div {
     display: flex;
