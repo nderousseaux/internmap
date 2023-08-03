@@ -5,13 +5,15 @@
 
 <script>
 import MainMap from './views/MapView.vue'
-// import DSView from './views/DSView.vue'
+import DSView from './views/DSView.vue'
 
 export default {
   name: 'App',
   components: {
+    // eslint-disable-next-line
     MainMap,
-    // DSView,
+    // eslint-disable-next-line
+    DSView,
   },
 }
 </script>

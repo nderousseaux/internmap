@@ -19,7 +19,7 @@
       <ButtonComp icon="sliders" primary shadow big rotate/>
     </div>
     <div>
-      <ButtonComp text="Lorem ipsum" primary shadow bubble/>
+      <ButtonComp text="Natter Electricité" primary shadow bubble/>
       <ButtonComp text="Lorem ipsum" primary dimmed shadow bubble/>
       <ButtonComp text="Lorem ipsum" secondary shadow bubble/>
       <ButtonComp text="Lorem ipsum" secondary dimmed shadow bubble/>
@@ -67,7 +67,8 @@ export default {
 <style scoped>
 #BlankView {
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
+  max-height: 100%;
   background: #C3C3C3;
   display: flex;
   justify-content: center;

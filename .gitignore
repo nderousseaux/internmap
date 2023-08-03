@@ -2,6 +2,7 @@
 node_modules
 /dist
 draft
+companies.json
 
 # local env files
 .env.local

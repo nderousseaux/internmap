@@ -9,34 +9,53 @@
     :zoom="zoom"
     @zoom_changed="updateZoom()"
   >
-    <GmapCustomMarker
-    :marker="center"
-    alignment="center"
-    >
 
-    <span v-if="gps">
+    <!-- Location dot -->
+    <CustomMarker
+      :options="{
+        position: center,
+      }"
+      v-if="gps"
+    >
       <LocationDot v-if="zoom > 15" primary approxCircle/>
-      <LocationDot v-else primary />
-    </span>
-    
-        
-    </GmapCustomMarker>
+      <LocationDot v-else primary/>
+    </CustomMarker>
+
+
+    <!-- Companies markers -->
+    <CustomMarker
+      v-for="company in companies"
+      :key="company.id"
+      :options="{
+        position: company.gps,
+        anchorPoint: 'BOTTOM_CENTER',
+        offsetY: -10,
+        zIndex: 999
+      }"
+    >
+      
+      <ButtonComp 
+      :text="company.name" primary shadow bubble/>
+    </CustomMarker>
+
+
 
   </GoogleMap>
 </template>
 
 <script>
-import { GoogleMap } from 'vue3-google-map'
-import GmapCustomMarker from 'vue3-gmap-custom-marker'
+import { GoogleMap, CustomMarker } from 'vue3-google-map'
 
+import ButtonComp from '../components/design_system/Button.vue'
 import LocationDot from '../components/design_system/LocationDot.vue'
 
 
 export default ({
   name: 'MainMap',
   components: {
+    ButtonComp,
+    CustomMarker,
     GoogleMap,
-    GmapCustomMarker,
     LocationDot,
   },
 
@@ -50,16 +69,26 @@ export default ({
       },
       gps: false,
       zoom: 12,
+      json_data: null,
     }
   },
 
   mounted() {
     this.placeLocation()
+    this.loadCompanies()
   },
 
   computed: {
     map() {
       return this.$refs.map.map
+    },
+    companies() {
+      if (this.json_data == null) return
+      return this.json_data.companies
+    },
+    categories() {
+      if (this.json_data == null) return
+      return this.json_data.categories
     }
   },
 
@@ -78,7 +107,18 @@ export default ({
 
     updateZoom() {
       this.zoom = this.map.getZoom()
-    }
+    },
+
+    loadCompanies() {
+      fetch(process.env.VUE_APP_JSON_URL_COMPANIES)
+        .then((response) => response.json())
+        .then((data) => {
+          this.json_data = data
+        })
+        .catch((error) => {
+          console.error('Error:', error)
+        })
+    },
   },
 })
 </script>
