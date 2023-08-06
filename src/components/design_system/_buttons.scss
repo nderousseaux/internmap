@@ -38,10 +38,11 @@
 
 /* Speech bubble */
 .btn-bubble {
-	border-radius: 20px;
-	padding: 8px 16px;
+	border-radius: 17px;
+	padding: 8px 20px;
 
 	height: 42px;
+	font-size: 14px;
 	
 	text-transform: none;
 
@@ -70,7 +71,27 @@
 	}
 }
 
+/* Si l'insert est activé */
+.btn-slot-only {
+	height: auto;
+	padding: 10px;
 
+	background-color: var(--light-color);
+
+	&::after { 
+    transform: rotate(-45deg) translate(-90%, -10%);
+	}
+
+	&:hover {
+		cursor: default;
+	}
+
+
+	& > span {
+		display: none;
+	}
+	
+}
 
 /* Rotate */
 .btn-rotate {
@@ -96,7 +117,9 @@
 
 /* Colors */
 .btn-primary {
+
 	&:not(.btn-dimmed) {
+
 		background-color: var(--primary-color);
 		color: var(--light-color);
 
@@ -111,6 +134,17 @@
 		&::after {
 			border-color: transparent transparent var(--primary-color) var(--primary-color);
 		}
+
+		&.btn-slot-only {
+			border : 2px solid var(--primary-color);
+			color: var(--dark-color);
+			background-color: var(--light-color);
+			
+			&::after {
+				border-color: transparent transparent var(--primary-color) var(--primary-color);
+			}
+		}
+
 	}
 
 	&.btn-dimmed {
@@ -133,6 +167,16 @@
 		&::after {
 			border-color: transparent transparent var(--primary-color-light) var(--primary-color-light);
 		}
+
+		&.btn-slot-only {
+			border : 2px solid var(--primary-color-dimmed);
+			color: var(--dark-color);
+			background-color: var(--light-color);
+			
+			&::after {
+				border-color: transparent transparent var(--primary-color-dimmed) var(--primary-color-dimmed);
+			}
+		}
 	}
 
 }
@@ -152,6 +196,16 @@
 
 		&::after {
 			border-color: transparent transparent var(--secondary-color) var(--secondary-color);
+		}
+
+		&.btn-slot-only {
+			border : 2px solid var(--secondary-color);
+			color: var(--dark-color);
+			background-color: var(--light-color);
+			
+			&::after {
+				border-color: transparent transparent var(--secondary-color) var(--secondary-color);
+			}
 		}
 	}
 
@@ -175,6 +229,16 @@
 
 		&::after {
 			border-color: transparent transparent var(--secondary-color-light) var(--secondary-color-light);
+		}
+
+		&.btn-slot-only {
+			border : 2px solid var(--secondary-color-dimmed);
+			color: var(--dark-color);
+			background-color: var(--light-color);
+			
+			&::after {
+				border-color: transparent transparent var(--secondary-color-dimmed) var(--secondary-color-dimmed);
+			}
 		}
 	}
 }

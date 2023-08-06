@@ -36,6 +36,9 @@
       <ClickableText text="Lorem ipsum, Dolor Sit Amet" :method="clicked"/>
       <ClickableText icon="globe" text="Lorem ipsum, Dolor Sit Amet" :method="clicked"/>
     </div>
+    <div>
+      <CompanyDetails/>
+    </div>
 
   </div>
 </template>
@@ -45,6 +48,7 @@ import ButtonComp from '../components/design_system/Button.vue'
 import LocationDot from '../components/design_system/LocationDot.vue'
 import TagComp from '../components/design_system/Tag.vue'
 import ClickableText from '../components/design_system/ClickableText.vue'
+import CompanyDetails from '../components/CompanyDetails.vue'
 
 
 export default {
@@ -54,6 +58,7 @@ export default {
     LocationDot,
     TagComp,
     ClickableText,
+    CompanyDetails
   },
 
   methods: {

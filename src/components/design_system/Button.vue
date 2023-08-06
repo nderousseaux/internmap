@@ -4,9 +4,16 @@
 	<button id="ButtonComp" class="btn"
 		:class="classes"
 	>
-		<i v-if="icon" :class="'fas fa-' + icon"></i>
-		<span v-if="text">{{ text }}</span>
-		<span v-if="bubble" class="arrow"></span>
+		<!-- V-if slot is not use -->
+		<span>
+			<i v-if="icon" :class="'fas fa-' + icon"></i>
+			<span v-if="text">{{ text }}</span>
+			<span v-if="bubble" class="arrow"></span>
+		</span>
+
+		<!-- Si button bubble, on affiche un composant quand on clique sur le bouton -->
+		<slot v-if="slotOpen"></slot>
+
 	</button>
 </template>
 
@@ -24,6 +31,7 @@ export default {
 		big: Boolean,
 		rotate: Boolean,
 		bubble: Boolean,
+		slotOpen: Boolean,
 	},
 	
 	computed: {
@@ -38,6 +46,7 @@ export default {
 				'btn-rotate': this.rotate,
 				'btn-bubble': this.bubble,
 				'btn-only-icon': !this.text && this.icon,
+				'btn-slot-only': this.slotOpen,
 			};
 		},
 	},

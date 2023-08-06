@@ -1,10 +1,12 @@
 .clickable-text {
-	display: inline-flex;
+	display: flex;
 	align-items: center;
 	justify-content: center;
 
 	border-radius: 15px;
 	padding: 3px 15px;
+
+	width: fit-content;
 	
 	font-weight: bold;
 	transition: background-color 0.2s ease-in-out;
@@ -16,6 +18,10 @@
 	&:hover {
 		cursor: pointer;
 		background-color: var(--grey-color);
+	}
+
+	span {
+	 text-align: left;
 	}
 }
 
