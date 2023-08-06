@@ -17,7 +17,7 @@
         position: gps,
       }"
       v-if="gps"
-      @click="map.setCenter(gps)"
+      @click="map.panTo(gps)"
     >
       <LocationDot v-if="zoom > 15" primary approxCircle/>
       <LocationDot v-else primary/>
@@ -147,7 +147,7 @@ export default ({
         return;
 
       // On redefini le centre (pour le bug du bouton qui se déplace quand on ferme le détail)
-      this.map.setCenter(this.map.getCenter())
+      this.map.panTo(this.map.getCenter())
       
       // Cliqué sur la carte, réinitialisez openCompany à -1
       this.openCompany = -1;
@@ -155,7 +155,7 @@ export default ({
 
     // Quand un bouton est cliqué, on ouvre la compagnie
     companyClicked(id) {
-      this.map.setCenter(this.companies[id].gps)
+      this.map.panTo(this.companies[id].gps)
 
       this.openCompany = id;
     }
