@@ -8,7 +8,7 @@
 			</div> -->
 	
 			<div id="Infos">
-				<p v-if="compagny.responsable"><b>Gérant:</b> {{ compagny.responsable }}</p>
+				<p v-if="compagny.manager"><b>Responsable:</b> {{ compagny.manager }}</p>
 				<p v-if="compagny.tutor"><b>Tuteur:</b> {{ compagny.tutor }}</p>
 	
 				<ClickableText

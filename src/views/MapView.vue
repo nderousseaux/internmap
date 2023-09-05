@@ -98,9 +98,9 @@ export default ({
       if (this.json_data == null) return
       return this.json_data.companies
     },
-    categories() {
+    tags() {
       if (this.json_data == null) return
-      return this.json_data.categories
+      return this.json_data.tags
     }
   },
 
