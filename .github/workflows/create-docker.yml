@@ -15,12 +15,12 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag internmap:latest
 
     - name: Login to GitHub Container Registry
       run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
     
     - name: Tag and push Docker image
       run: |
-        docker tag my-image-name:$(date +%s) ghcr.io/${{ github.repository_owner }}/my-image-name:latest
-        docker push ghcr.io/${{ github.repository_owner }}/my-image-name:latest
+        docker tag internmap:latest ghcr.io/${{ github.repository_owner }}/internmap:latest
+        docker push ghcr.io/${{ github.repository_owner }}/internmap:latest
