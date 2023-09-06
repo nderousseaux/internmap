@@ -1,8 +1,15 @@
-name: Create and publish Docker image of Internmap
+name: Publish Docker image
 
 on:
-  release:
-    types: [plublished]
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+  # release:
+  #   types: [published]
 
 env:
   IMAGE_NAME: internmap
