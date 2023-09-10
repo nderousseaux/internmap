@@ -1,18 +1,18 @@
-# internmap
+# Internmap
 
-## Project setup
-```
-npm install
+## Environment variables
+Set this environment variables in `.env` file in root directory of project.
+
+```bash
+VUE_APP_GOOGLE_MAPS_API_KEY # Google Maps API key
+VUE_APP_GOOGLE_MAPS_ID # Google Maps ID
+VUE_APP_JSON_URL_COMPANIES # URL to companies JSON
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
+## Project setup in development
+```bash
+npm install # install dependencies
+npm run serve # run development server
 ```
 
 ### Lints and fixes files
@@ -20,5 +20,14 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Project setup in production
+
+### Build docker image
+```bash
+docker build -t internamp $(for i in `cat .env`; do out+="--build-arg $i " ; done; echo $out;out="") .
+```
+
+### Run docker container
+```bash
+docker run -d -p 80:80 internamp
+```
