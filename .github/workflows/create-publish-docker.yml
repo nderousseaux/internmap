@@ -51,4 +51,4 @@ jobs:
           build-args: |
             VUE_APP_GOOGLE_MAPS_API_KEY=${{ secrets.VUE_APP_GOOGLE_MAPS_API_KEY }}
             VUE_APP_GOOGLE_MAPS_ID=${{ vars.VUE_APP_GOOGLE_MAPS_ID }}
-            VUE_APP_JSON_URL_COMPANIES=${{ var.VUE_APP_JSON_URL_COMPANIES }}
+            VUE_APP_JSON_URL_COMPANIES=${{ vars.VUE_APP_JSON_URL_COMPANIES }}
