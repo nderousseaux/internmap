@@ -6,6 +6,15 @@ steps:
       - '-t'
       - >-
         $_AR_HOSTNAME/$PROJECT_ID/cloud-run-source-deploy/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA
+      - '--build-arg'
+      - >-
+        VUE_APP_GOOGLE_MAPS_API_KEY=$_VUE_APP_GOOGLE_MAPS_API_KEY
+      - '--build-arg'
+      - >-
+        VUE_APP_GOOGLE_MAPS_ID=$_VUE_APP_GOOGLE_MAPS_ID
+      - '--build-arg'
+      - >-
+        VUE_APP_JSON_URL_COMPANIES=$_VUE_APP_JSON_URL_COMPANIES
       - .
       - '-f'
       - Dockerfile
