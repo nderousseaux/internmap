@@ -32,7 +32,7 @@ docker build -t internamp $(for i in `cat .env`; do out+="--build-arg $i " ; don
 docker run -d -p 80:80 internamp
 ```
 
-## Build with githuv actions
+## Build with github actions
 `.github/workflows/create-publish-docker.yml` file contains workflow for building and publishing docker image to docker hub.
 It needs to be configured with secrets and variables in github repository settings.
 
