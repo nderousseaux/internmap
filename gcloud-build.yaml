@@ -48,8 +48,8 @@ options:
 substitutions:
   _PLATFORM: managed
   _SERVICE_NAME: internmap
-  _DEPLOY_REGION: europe-west9
-  _AR_HOSTNAME: europe-west9-docker.pkg.dev
+  _DEPLOY_REGION: us-central1
+  _AR_HOSTNAME: us-central1-docker.pkg.dev
   _TRIGGER_ID: c96f4330-5a25-4fe4-8775-4c17189b847a
 tags:
   - gcp-cloud-build-deploy-cloud-run
