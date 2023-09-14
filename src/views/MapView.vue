@@ -32,7 +32,7 @@
         position: company.gps,
         anchorPoint: 'BOTTOM_CENTER',
         offsetY: -10,
-        zIndex: 999
+        zIndex: companyOpen(idCompany) ? 4 : 2,
       }"
     >
       
