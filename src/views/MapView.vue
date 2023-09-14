@@ -142,6 +142,8 @@ export default ({
 
     // On teste si la carte (et uniquement la carte, pas les boutons) a été cliquée
     mapClicked(event) {
+      if (event.domEvent.explicitOriginalTarget == null)
+        return;
       // Si clique pas sur la carte, on ne fait rien
       if (event.domEvent.explicitOriginalTarget.style.zIndex != 3)
         return;
