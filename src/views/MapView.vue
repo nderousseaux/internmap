@@ -23,27 +23,29 @@
       <LocationDot v-else primary/>
     </CustomMarker>
 
-
-    <!-- Companies markers -->
-    <CustomMarker
-      v-for="(company, idCompany) in companies"
-      :key=idCompany
-      :options="{
-        position: company.gps,
-        anchorPoint: 'BOTTOM_CENTER',
-        offsetY: -10,
-        zIndex: companyOpen(idCompany) ? 4 : 2,
-      }"
-    >
-      
-      <ButtonComp 
-      :text="company.name" primary shadow bubble
-      :slotOpen="companyOpen(idCompany)"
-      @click="companyClicked(idCompany)"
+    <MarkerCluster>
+      <!-- Companies markers -->
+      <CustomMarker
+        v-for="(company, idCompany) in companies"
+        :key=idCompany
+        :options="{
+          position: company.gps,
+          anchorPoint: 'BOTTOM_CENTER',
+          offsetY: -10,
+          zIndex: companyOpen(idCompany) ? 4 : 2,
+        }"
       >
-        <CompagnyDetails :compagny="company"/>
-      </ButtonComp>
-    </CustomMarker>
+        
+        <ButtonComp 
+        :text="company.name" primary shadow bubble
+        :slotOpen="companyOpen(idCompany)"
+        @click="companyClicked(idCompany)"
+        >
+          <CompagnyDetails :compagny="company"/>
+        </ButtonComp>
+      </CustomMarker>
+
+    </MarkerCluster>
 
 
 
@@ -51,11 +53,12 @@
 </template>
 
 <script>
-import { GoogleMap, CustomMarker } from 'vue3-google-map'
+import { GoogleMap, CustomMarker, MarkerCluster } from 'vue3-google-map'
 
-import ButtonComp from '../components/design_system/Button.vue'
+
+import ButtonComp from '@/components/design_system/Button.vue'
 import CompagnyDetails from '@/components/CompanyDetails.vue'
-import LocationDot from '../components/design_system/LocationDot.vue'
+import LocationDot from '@/components/design_system/LocationDot.vue'
 
 export default ({
   name: 'MainMap',
@@ -65,7 +68,8 @@ export default ({
     CustomMarker,
     GoogleMap,
     LocationDot,
-  },
+    MarkerCluster
+},
 
   data() {
     return {

@@ -41,8 +41,8 @@
 	border-radius: 17px;
 	padding: 8px 20px;
 
-	height: 42px;
-	font-size: 14px;
+	height: 37px;
+	font-size: 12px;
 	
 	text-transform: none;
 
@@ -52,7 +52,7 @@
     width: 0;
     height: 0;
     box-sizing: border-box;
-    border: 0.5em solid black;
+    border: 0.6em solid black;
     
     transform-origin: 0 0;
     transform: rotate(-45deg) translate(-50%, -50%);
@@ -79,7 +79,7 @@
 	background-color: var(--light-color);
 
 	&::after { 
-    transform: rotate(-45deg) translate(-85%, -15%);
+    transform: rotate(-45deg) translate(-75%, -25%);
 	}
 
 	&:hover {
