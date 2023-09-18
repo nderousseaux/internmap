@@ -180,10 +180,9 @@ export default ({
 <style>
 /* On change la couleur des clusters */
 [src*="data:image/svg+xml;base64,CiAgPHN2ZyBmaWxsPSIjMDAwMGZmIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgMjQwIj4KICAgIDxjaXJjbGUgY3g9IjEyMCIgY3k9IjEyMCIgb3BhY2l0eT0iLjYiIHI9IjcwIiAvPgogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTIwIiBvcGFjaXR5PSIuMyIgcj0iOTAiIC8+CiAgICA8Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMjAiIG9wYWNpdHk9Ii4yIiByPSIxMTAiIC8+CiAgPC9zdmc+"] {
-  filter: hue-rotate(30deg);
+  filter: brightness(0) saturate(100%) invert(39%) sepia(91%) saturate(371%) hue-rotate(137deg) brightness(87%) contrast(96%);
 }
 [src*="data:image/svg+xml;base64,CiAgPHN2ZyBmaWxsPSIjZmYwMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNDAgMjQwIj4KICAgIDxjaXJjbGUgY3g9IjEyMCIgY3k9IjEyMCIgb3BhY2l0eT0iLjYiIHI9IjcwIiAvPgogICAgPGNpcmNsZSBjeD0iMTIwIiBjeT0iMTIwIiBvcGFjaXR5PSIuMyIgcj0iOTAiIC8+CiAgICA8Y2lyY2xlIGN4PSIxMjAiIGN5PSIxMjAiIG9wYWNpdHk9Ii4yIiByPSIxMTAiIC8+CiAgPC9zdmc+"] {
-  filter: hue-rotate(30deg);
-  z-index: 1000;
+  filter: brightness(0) saturate(100%) invert(28%) sepia(80%) saturate(1785%) hue-rotate(352deg) brightness(91%) contrast(106%);
 }
 </style>
