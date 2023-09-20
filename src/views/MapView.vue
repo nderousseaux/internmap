@@ -17,12 +17,14 @@
         position: gps,
       }"
       v-if="gps"
-      @click="map.panTo(gps)"
+      
+      @click="changeFilter([19])"
     >
       <LocationDot v-if="zoom > 15" primary approxCircle/>
       <LocationDot v-else primary/>
     </CustomMarker>
 
+    <!-- Companies clusters -->
     <MarkerCluster>
       <!-- Companies markers -->
       <CustomMarker
@@ -41,14 +43,14 @@
         :slotOpen="companyOpen(idCompany)"
         @click="companyClicked(idCompany)"
         >
-          <CompagnyDetails :compagny="company"/>
+          <CompagnyDetails :compagny="companyWithTag(company)"/>
         </ButtonComp>
       </CustomMarker>
 
     </MarkerCluster>
-
-
-
+    
+    <!-- Filter tags -->
+    <TagsFilters id="TagsFilter" :tags="tags" :filter="activFilter" :changeFilter="changeFilter"/>
   </GoogleMap>
 </template>
 
@@ -59,6 +61,7 @@ import { GoogleMap, CustomMarker, MarkerCluster } from 'vue3-google-map'
 import ButtonComp from '@/components/design_system/Button.vue'
 import CompagnyDetails from '@/components/CompanyDetails.vue'
 import LocationDot from '@/components/design_system/LocationDot.vue'
+import TagsFilters from '@/components/TagsFilters.vue'
 
 export default ({
   name: 'MainMap',
@@ -68,7 +71,8 @@ export default ({
     CustomMarker,
     GoogleMap,
     LocationDot,
-    MarkerCluster
+    MarkerCluster,
+    TagsFilters,
 },
 
   data() {
@@ -83,6 +87,7 @@ export default ({
       zoom: 12,
       json_data: null,
       openCompany: -1,
+      activFilter: [],
     }
   },
 
@@ -100,7 +105,24 @@ export default ({
     },
     companies() {
       if (this.json_data == null) return
-      return this.json_data.companies
+      
+      if (this.activFilter.length == 0) {
+        // On retourne toutes les compagnies sous forme de dictionnaire
+        return this.json_data.companies
+      }
+
+      // On filtre les compagnies qui contiennent tous les tags actifs
+      // (on retourne un dictionnaire)
+      let companies = {}
+      for (const [idCompany, company] of Object.entries(this.json_data.companies)) {
+        if (this.activFilter.every((tag) => company.tags.includes(tag))) {
+          companies[idCompany] = company
+        }
+      }
+
+
+      return companies
+      
     },
     tags() {
       if (this.json_data == null) return
@@ -165,7 +187,22 @@ export default ({
 
       this.openCompany = id;
     },
+
+    // On récupère la compagnie avec les tags associés
+    companyWithTag(company) {
+      company.tagsObj = company.tags.map((tag) => {
+        return this.tags[tag]
+      })
+
+      return company
+    },
+
+    // On change les filtres
+    changeFilter(filter) {
+      this.activFilter = filter
+    },
   },
+
 })
 </script>
 
@@ -174,6 +211,13 @@ export default ({
   width: 100vw;
   height: 100vh;
   background: #d6d6d6 ;
+}
+
+#TagsFilter {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 20px;
 }
 </style>
 

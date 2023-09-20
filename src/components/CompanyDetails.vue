@@ -2,10 +2,14 @@
 	<div class="company-details">
 		<span>
 			<h1>{{ compagny.name }}</h1>
-			<!-- <div id="Tags">
-				<div style="height: 30px;"></div>
+			<div id="Tags">
+				<Tag
+					v-for="tag in compagny.tagsObj"
+					:key="tag"
+					:text="tag.name"
+				/>
 	
-			</div> -->
+			</div>
 	
 			<div id="Infos">
 				<p v-if="compagny.manager"><b>Responsable:</b> {{ compagny.manager }}</p>
@@ -44,7 +48,8 @@
 </template>
 
 <script>
-import ClickableText from './design_system/ClickableText.vue';
+import ClickableText from '@/components/design_system/ClickableText.vue';
+import Tag from '@/components/design_system/Tag.vue';
 
 
 export default {
@@ -52,6 +57,7 @@ export default {
 
 	components: {
 		ClickableText,
+		Tag,
 	},
 
 	props: {
@@ -107,8 +113,13 @@ h1 {
 }
 
 #Tags {
-	background-color: red;
 	padding: 5px 0;
+	white-space: nowrap;
+	overflow-x: auto;
+
+	
+	display: flex;
+	gap: 10px;	
 }
 
 #Infos {

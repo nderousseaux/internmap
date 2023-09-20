@@ -44,11 +44,11 @@
 </template>
 
 <script>
-import ButtonComp from '../components/design_system/Button.vue'
-import LocationDot from '../components/design_system/LocationDot.vue'
-import TagComp from '../components/design_system/Tag.vue'
-import ClickableText from '../components/design_system/ClickableText.vue'
-import CompanyDetails from '../components/CompanyDetails.vue'
+import ButtonComp from '@/components/design_system/Button.vue'
+import LocationDot from '@/components/design_system/LocationDot.vue'
+import TagComp from '@/components/design_system/Tag.vue'
+import ClickableText from '@/components/design_system/ClickableText.vue'
+import CompanyDetails from '@/components/CompanyDetails.vue'
 
 
 export default {
