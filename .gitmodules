@@ -1,3 +1,0 @@
-[submodule "internmap-backend"]
-	path = backend
-	url = git@github.com:nderousseaux/internmap-backend.git
